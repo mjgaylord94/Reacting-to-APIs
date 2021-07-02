@@ -10,7 +10,9 @@ const App = () => {
     const [films, setFilms] = useState([])
     const [people, setPeople] = useState([])
 
-
+    // If FilmClk state is false, it will set it to true and then fetch data to populate into Film state.
+    // It also clears the state of the People to ensure only one state is being mapped at a time.
+    // If FilmClk state is true, it clears the current state.
     function filmClick() {
         if (filmClk === false) {
             setFilmClk(true)
@@ -29,7 +31,9 @@ const App = () => {
         }
     }
 
-
+    // If PeopleClk state is false, it will set it to true and then fetch data to populate into People state.
+    // It also clears the state of the Film to ensure only one state is being mapped at a time.
+    // If PeopleClk state is true, it clears the current state.
     function peopleClick() {
         if (peopleClk === false) {
             setPeopleClk(true)
@@ -98,32 +102,32 @@ const App = () => {
             </div>
             {/* People Cards */}
             <div id="generated-people" className="row d-flex justify-content-center">
-                    {people.map(person => (
-                        <div className="card col-md-3 m-3" key={`person-card-${person.name}`}>
-                            <div className="card-body">
-                                <h3 className="card-title text-center mb-4">{person.name}</h3>
-                                <ul className="list-group list-group-flush">
-                                    <li className="list-group-item">
-                                        <span style={{ color: "#2c9be5" }}>Gender: </span>
-                                        <span>{person.gender}</span>
-                                    </li>
-                                    <li className="list-group-item">
-                                        <span style={{ color: "#2c9be5" }}>Age: </span>
-                                        <span>{person.age}</span>
-                                    </li>
-                                    <li className="list-group-item">
-                                        <span style={{ color: "#2c9be5" }}>Eye Color: </span>
-                                        <span>{person.eye_color}</span>
-                                    </li>
-                                    <li className="list-group-item">
-                                        <span style={{ color: "#2c9be5" }}>Hair Color: </span>
-                                        <span>{person.hair_color}</span>
-                                    </li>
-                                </ul>
-                            </div>
+                {people.map(person => (
+                    <div className="card col-md-3 m-3" key={`person-card-${person.name}`}>
+                        <div className="card-body">
+                            <h3 className="card-title text-center mb-4">{person.name}</h3>
+                            <ul className="list-group list-group-flush">
+                                <li className="list-group-item">
+                                    <span style={{ color: "#2c9be5" }}>Gender: </span>
+                                    <span>{person.gender}</span>
+                                </li>
+                                <li className="list-group-item">
+                                    <span style={{ color: "#2c9be5" }}>Age: </span>
+                                    <span>{person.age}</span>
+                                </li>
+                                <li className="list-group-item">
+                                    <span style={{ color: "#2c9be5" }}>Eye Color: </span>
+                                    <span>{person.eye_color}</span>
+                                </li>
+                                <li className="list-group-item">
+                                    <span style={{ color: "#2c9be5" }}>Hair Color: </span>
+                                    <span>{person.hair_color}</span>
+                                </li>
+                            </ul>
                         </div>
-                    ))}
-                </div>
+                    </div>
+                ))}
+            </div>
 
         </>
     )
